@@ -1,9 +1,10 @@
 body{
-    background-image:url('BackgroundHealSpace.png');
+    background-image:url('https://raw.githubusercontent.com/HSpace2026/HealSpace2026/main/images/BackgroundHealSpace.png');
     background-size:cover;
 }
 
 .wrap-image {
     float: right; 
     margin-left: 15px;
+
 }
