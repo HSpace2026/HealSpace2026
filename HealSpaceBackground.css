@@ -1,0 +1,9 @@
+body{
+    background-image:url('BackgroundHealSpace.png');
+    background-size:cover;
+}
+
+.wrap-image {
+    float: right; 
+    margin-left: 15px;
+}
