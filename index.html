@@ -232,7 +232,51 @@
         <input type="submit">
         
     </form>
+    
+    <div id="messageContainer" style="margin-left: 50px; padding: 20px; width: 400px; font-size: 1.1em; color: #155724;">
+        </div>
+    
 </div>
+
+<script>
+    // 1. Get references to the form and the message container
+    const form = document.getElementById('donationForm');
+    const messageContainer = document.getElementById('messageContainer');
+
+    // 2. Add an event listener for the form submission
+    form.addEventListener('submit', function(event) {
+        
+        // Stop the default form submission (prevents page refresh)
+        event.preventDefault(); 
+
+        // 3. Get the values from the input fields
+        const nameInput = document.getElementById('fullName').value.trim();
+        const amountInput = document.getElementById('amount').value.trim();
+
+        // Basic check to ensure required fields are not empty (though HTML handles this, JS is safer)
+        if (nameInput === "" || amountInput === "") {
+            messageContainer.innerHTML = "Please fill out the name and amount fields.";
+            return;
+        }
+
+        // 4. Format the message
+        // Sanitizing the input slightly (though this is client-side only)
+        const name = nameInput.split(' ')[0]; // Use first word of the name
+        const amount = parseFloat(amountInput).toFixed(2); // Ensure two decimal places for currency
+
+        const confirmationMessage = `
+            <p style="font-weight: bold; font-size: 1.2em;">Donation Confirmed!</p>
+            <p><strong>${name}</strong> has donated <strong>AED ${amount}</strong>.</p>
+            <p>Thank you for your donation to aid the less fortunate. Your kindness is deeply appreciated!</p>
+        `;
+
+        // 5. Display the message in the container
+        messageContainer.innerHTML = confirmationMessage;
+        
+        // Optional: Clear the form fields after submission
+        form.reset();
+    });
+</script>
         
       <ul>
         <li><a href = "#Home" class = "HomePage">Go Back</a></li>
@@ -240,6 +284,7 @@
 
     </body>
 </html>
+
 
 
 
