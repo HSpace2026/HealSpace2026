@@ -199,110 +199,6 @@
 
       <hr style="border-color: #03045F; border-width: 3px; background-color: #012A4A;">
       <h2 id = "Donations" style="text-align:center; font-size:3em;text-decoration-line:underline;text-decoration-style:wavy;text-decoration-color:#82eefd;text-decoration-thickness:4px;text-underline-offset:8px;">Donations</h2>
-
-<div class="form-and-message-container">
-    
-    <form id="donationForm" style="width: 500px;">
-        
-        <div class="form-row">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" required>
-        </div>
-        
-        <div class="form-row">
-            <label for="paymentMethod">Payment Method</label>
-            <select id="paymentMethod" name="paymentMethod" required class="form-select">
-                <option value="">Select a method...</option>
-                <option value="Credit Card">Credit Card</option>
-                <option value="PayPal">PayPal</option>
-                <option value="Bank Transfer">Bank Transfer</option>
-            </select>
-        </div>
-        
-        <div class="form-row">
-            <label for="mobileNumber">Mobile Number</label>
-            <input type="text" id="mobileNumber" name="Mobile" required>
-        </div>
-
-        <div class="form-row">
-            <label for="amount">Amount of Money (AED)</label>
-            <input type="text" id="amount" name="funds" required>
-        </div>
-
-        <br />
-        <input type="submit">
-        
-    </form>
-    
-    <div id="messageContainer" style="margin-left: 50px; padding: 20px; width: 400px; font-size: 1.1em; color: #155724;">
-        </div>
-    
-</div>
-
-<script>
-    // 1. Get references to the form and the message container
-    const form = document.getElementById('donationForm');
-    const messageContainer = document.getElementById('messageContainer');
-
-    // 2. Add an event listener for the form submission
-    form.addEventListener('submit', function(event) {
-        
-        // Stop the default form submission (prevents page refresh)
-        event.preventDefault(); 
-
-        // 3. Get all necessary values from the input fields
-        const nameInput = document.getElementById('fullName').value.trim();
-        const amountInput = document.getElementById('amount').value.trim();
-        const methodInput = document.getElementById('paymentMethod').value;
-        const mobileInput = document.getElementById('mobileNumber').value.trim();
-        const timeStamp = new Date().toLocaleString();
-
-        if (nameInput === "" || amountInput === "") {
-            messageContainer.innerHTML = "Please fill out the name and amount fields.";
-            return;
-        }
-
-        // 4. --- Prepare and Download CSV ---
-        
-        // CSV Header (column titles)
-        const csvHeader = "Timestamp,Full Name,Amount (AED),Payment Method,Mobile Number\n";
-        
-        // New Donation Record (data row)
-        // Values are wrapped in quotes to handle names/methods with commas if they ever occur
-        const newRow = `"${timeStamp}","${nameInput}",${amountInput},"${methodInput}","${mobileInput}"\n`;
-
-        // Create a file-like object (Blob) containing the CSV data
-        const blob = new Blob([csvHeader, newRow], { type: 'text/csv;charset=utf-8;' });
-        
-        // Create a temporary link element to trigger the download
-        const link = document.createElement("a");
-        if (link.download !== undefined) { 
-            const url = URL.createObjectURL(blob);
-            link.setAttribute("href", url);
-            // Set the filename
-            link.setAttribute("download", "Donation_Record_" + Date.now() + ".csv"); 
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click(); // Trigger the download
-            document.body.removeChild(link); // Clean up the temporary link
-        }
-
-        // 5. --- Display On-Screen Confirmation Message ---
-        const name = nameInput.split(' ')[0]; // Use first word of the name for the message
-        const amount = parseFloat(amountInput).toFixed(2); // Format amount
-
-        const confirmationMessage = `
-            <p style="font-weight: bold; font-size: 1.2em;">Donation Confirmed! 🎉</p>
-            <p><strong>${name}</strong> has donated <strong>AED ${amount}</strong>.</p>
-            <p>Thank you for your donation to aid the less fortunate. A CSV file has been downloaded.</p>
-        `;
-
-        messageContainer.innerHTML = confirmationMessage;
-        
-        // 6. Optional: Clear the form fields
-        form.reset();
-    });
-</script>
         
       <ul>
         <li><a href = "#Home" class = "HomePage">Go Back</a></li>
@@ -310,6 +206,7 @@
 
     </body>
 </html>
+
 
 
 
