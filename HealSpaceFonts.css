@@ -85,6 +85,12 @@ li a {
     margin-bottom: 15px; /* Add space between rows */
 }
 
+#messageContainer {
+    /* Use a bright, ugly color and border to see if it's there */
+    border: 3px solid red !important;
+    background-color: yellow !important; 
+}
+
 .form-row label {
     /* Set a fixed width for all labels to ensure the inputs start at the same point */
     width: 150px; 
@@ -131,3 +137,4 @@ div {
     padding: 10px;
 
 }
+
