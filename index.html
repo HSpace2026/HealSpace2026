@@ -39,8 +39,27 @@
                     margin: 1rem auto;
                 }
             }
+iframe[src*="docs.google.com/forms"] {
+    width: 31.25rem;
+    max-width: 100%; 
+    height: 37.5rem; 
+    border-radius: 5px;
+    background-color: #DEF3F7;
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+}
 
-            /* ... [Your existing CSS block provided in the prompt goes here] ... */
+@media (max-width: 600px) {
+    
+    iframe[src*="docs.google.com/forms"],
+    iframe[src*="chatbase.co/chatbot-iframe"] {
+        width: 95% !important; 
+        height: auto !important;
+        min-height: 30rem !important;
+        margin: 1rem auto !important;
+  }
+    }          
             
         </style>
         
@@ -96,7 +115,7 @@
         goals and physical disabilities or disorders. <br />
       </p>
         <br />
-      <p style = "font-size: 1.75rem; text-align:center;">
+      <p style = "text-align:center;">
         Input your starting goals to HealSpace AI and any physical disabilities or disorders you have.<br />
         The AI then gives you a set amount of exercises you can do, including how much times it should be done.<br />
         Once you've completed the activities, make sure to respond to the AI so that it can record<br />
@@ -126,7 +145,7 @@
         or severe outbreak.
       </p>
         <br />
-      <p style = "font-size:1.75rem; text-align:start; margin-left: 3.125rem;">
+      <p style = "text-align:start; margin-left: 3.125rem;">
         After considering potential physical disabilities and getting advice<br />
         of different exercise activites you can perform, the AI can now<br />
         talk of what healthy ingredients or restaurants that are available to you.<br />
@@ -159,7 +178,7 @@
         Here's how we plan to do it, and we require your assistance:
       </p>
         <br />
-      <p style = "font-size: 1.75rem; text-align:start; margin-left: 3.125rem;">
+      <p style = "text-align:start; margin-left: 3.125rem;">
         <img src = "https://raw.githubusercontent.com/HSpace2026/HealSpace2026/main/images/Poverty1.jpg" alt="A less fortunate-- underpriviliged-- person begging for help" 
              style="width: 25rem; height: 18.75rem; margin-right: 1.875rem; float: left; border-radius: 25px;" class="wrap-image">
         Part of the income gained from<br />
@@ -256,4 +275,3 @@
 
     </body>
 </html>
-
