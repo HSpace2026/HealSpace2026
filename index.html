@@ -200,12 +200,13 @@
       <hr style="border-color: #03045F; border-width: 3px; background-color: #012A4A;">
       <h2 id = "Donations" style="text-align:center; font-size:3em;text-decoration-line:underline;text-decoration-style:wavy;text-decoration-color:#82eefd;text-decoration-thickness:4px;text-underline-offset:8px;">Donations</h2>
 
-<div class="container">
-    <form style="width: 500px; padding: 20px; background-color: #DEF3F7;">
+<div class="form-and-message-container">
+    
+    <form id="donationForm" style="width: 500px;">
         
         <div class="form-row">
             <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName">
+            <input type="text" id="fullName" name="fullName" required>
         </div>
         
         <div class="form-row">
@@ -220,12 +221,12 @@
         
         <div class="form-row">
             <label for="mobileNumber">Mobile Number</label>
-            <input type="text" id="mobileNumber" name="Mobile">
+            <input type="text" id="mobileNumber" name="Mobile" required>
         </div>
 
         <div class="form-row">
             <label for="amount">Amount of Money (AED)</label>
-            <input type="text" id="amount" name="funds">
+            <input type="text" id="amount" name="funds" required>
         </div>
 
         <br />
@@ -309,6 +310,7 @@
 
     </body>
 </html>
+
 
 
 
